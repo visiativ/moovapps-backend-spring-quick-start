@@ -10,23 +10,21 @@
 
 	<artifactId>quick-start-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>quick-start-boot</name>
-
-	<properties>
-		<java.version>11</java.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.moovapps</groupId>
 			<artifactId>quick-start-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.moovapps</groupId>
+			<artifactId>quick-start-rest-adapter</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

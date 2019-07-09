@@ -24,6 +24,7 @@
 	<modules>
 		<module>boot</module>
 		<module>core</module>
+		<module>rest-adapter</module>
 	</modules>
 
 	<dependencyManagement>
@@ -33,6 +34,12 @@
 				<artifactId>quick-start-core</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.moovapps</groupId>
+				<artifactId>quick-start-rest-adapter</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
@@ -44,6 +51,18 @@
 					</exclusion>
 				</exclusions>
 				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.inject</groupId>
+				<artifactId>javax.inject</artifactId>
+				<version>1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+				<version>${spring-boot.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.junit.jupiter</groupId>
@@ -71,6 +90,12 @@
 			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>
