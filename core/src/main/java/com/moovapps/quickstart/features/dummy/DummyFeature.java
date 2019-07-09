@@ -4,9 +4,8 @@ import javax.inject.Named;
 
 @Named
 public class DummyFeature {
-	
-	public String ping(){
-		return "pong";
-	}
-	
+
+  public String ping() {
+    return "pong";
+  }
 }
