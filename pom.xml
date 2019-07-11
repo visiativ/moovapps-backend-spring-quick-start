@@ -15,6 +15,13 @@
 	<name>quick-start</name>
 	<description>A simple quick start project</description>
 
+	<modules>
+		<module>boot</module>
+		<module>core</module>
+		<module>rest-adapter</module>
+	</modules>
+
+	<!-- TODO : Move all after to a parent POM -->
 	<properties>
 		<java.version>11</java.version>
 		<spring-boot.version>2.1.6.RELEASE</spring-boot.version>
@@ -23,12 +30,6 @@
 		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
 		<sonar-maven-plugin.version>3.6.0.1398</sonar-maven-plugin.version>
 	</properties>
-
-	<modules>
-		<module>boot</module>
-		<module>core</module>
-		<module>rest-adapter</module>
-	</modules>
 
 	<dependencyManagement>
 		<dependencies>
@@ -42,7 +43,6 @@
 				<artifactId>quick-start-rest-adapter</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-test</artifactId>
@@ -55,7 +55,6 @@
 				</exclusions>
 				<scope>test</scope>
 			</dependency>
-
 			<dependency>
 				<groupId>javax.inject</groupId>
 				<artifactId>javax.inject</artifactId>
@@ -99,6 +98,8 @@
 		</dependency>
 	</dependencies>
 
+
+
 	<build>
 		<pluginManagement>
 			<plugins>
@@ -119,16 +120,27 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
+
+		<plugins>
+			<plugin> <!-- unit testing should be enabled by default -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/*UTest.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 
-	<!-- TODO : Move it to a parent POM -->
 	<profiles>
 		<profile>
 			<!-- this profile validate all things for production target -->
 			<!-- this profile MUST always be enable during CI -->
 			<id>prod</id>
 			<properties>
-				<unit-test.enable>true</unit-test.enable>
+				<skipTests>false</skipTests> <!-- force unit testing -->
 			</properties>
 			<build>
 				<plugins>
@@ -143,19 +155,6 @@
 							</execution>
 						</executions>
 					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>utest</id>
-			<activation>
-				<property>
-					<name>unit-test.enable</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
 					<!-- Jacoco is configured to report coverage only during unit testing -->
 					<plugin>
 						<groupId>org.jacoco</groupId>
@@ -176,18 +175,10 @@
 							</execution>
 						</executions>
 					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<configuration>
-							<includes>
-								<include>**/*UTest.java</include>
-							</includes>
-						</configuration>
-					</plugin>
 				</plugins>
 			</build>
 		</profile>
+
 	</profiles>
 
 </project>
