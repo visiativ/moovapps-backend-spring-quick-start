@@ -33,9 +33,15 @@ class DummyEndpointRestTest {
   @Test
   void ping() throws Exception {
     when(this.dummyFeature.ping()).thenReturn("pong");
-    this.mockMvc
-        .perform(get("/ping"))
-        .andExpect(status().isOk())
+    this.mockMvc.perform(get("/ping")).andExpect(status().isOk())
         .andExpect(content().string("pong"));
   }
+
+  @Test
+  void ping2() throws Exception {
+    when(this.dummyFeature.ping()).thenReturn("pong");
+    this.mockMvc.perform(get("/ping")).andExpect(status().isOk())
+        .andExpect(content().string("pong"));
+  }
+
 }

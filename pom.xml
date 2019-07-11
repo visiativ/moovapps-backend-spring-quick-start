@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+				 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -13,12 +13,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>quick-start</name>
-	<description>A simple quick start project </description>
+	<description>A simple quick start project</description>
 
 	<properties>
 		<java.version>11</java.version>
-		<junit.version>5.3.2</junit.version>
 		<spring-boot.version>2.1.6.RELEASE</spring-boot.version>
+		<junit.version>5.3.2</junit.version>
+		<fmt-maven-plugin.version>2.9</fmt-maven-plugin.version>
+		<jacoco-maven-plugin.version>0.8.4</jacoco-maven-plugin.version>
+		<sonar-maven-plugin.version>3.6.0.1398</sonar-maven-plugin.version>
 	</properties>
 
 	<modules>
@@ -100,26 +103,91 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-				<groupId>com.coveo</groupId>
-				<artifactId>fmt-maven-plugin</artifactId>
-				<version>2.9</version>
+					<groupId>com.coveo</groupId>
+					<artifactId>fmt-maven-plugin</artifactId>
+					<version>${fmt-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco-maven-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.sonarsource.scanner.maven</groupId>
+					<artifactId>sonar-maven-plugin</artifactId>
+					<version>${sonar-maven-plugin.version}</version>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-
-		<plugins>
-			<plugin>
-				<groupId>com.coveo</groupId>
-				<artifactId>fmt-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
 	</build>
+
+	<!-- TODO : Move it to a parent POM -->
+	<profiles>
+		<profile>
+			<!-- this profile validate all things for production target -->
+			<!-- this profile MUST always be enable during CI -->
+			<id>prod</id>
+			<properties>
+				<unit-test.enable>true</unit-test.enable>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>com.coveo</groupId>
+						<artifactId>fmt-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>check</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>utest</id>
+			<activation>
+				<property>
+					<name>unit-test.enable</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<!-- Jacoco is configured to report coverage only during unit testing -->
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>default-prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>default-report</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<includes>
+								<include>**/*UTest.java</include>
+							</includes>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
