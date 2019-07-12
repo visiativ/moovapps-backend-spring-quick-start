@@ -37,7 +37,7 @@ class UserEndpointUTest {
         .thenReturn(Optional.of(this.fpicot));
 
     this.mockMvc
-        .perform(get("/users/findByEmail?email={email}", "fpic4ot@visiativ.com"))
+        .perform(get("/users/findByEmail?email={email}", "fpicot@visiativ.com"))
         .andExpect(status().isOk())
         .andExpect(jsonPath("$.email").value(this.fpicot.getEmail()))
         .andExpect(jsonPath("$.firstName").value(this.fpicot.getFirstName()))

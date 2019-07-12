@@ -44,6 +44,8 @@
 
 	<dependencyManagement>
 		<dependencies>
+
+			<!-- Current application -->
 			<dependency>
 				<groupId>com.moovapps</groupId>
 				<artifactId>quick-start-core-api</artifactId>
@@ -67,6 +69,11 @@
 			<dependency>
 				<groupId>com.moovapps</groupId>
 				<artifactId>quick-start-rest-adapter</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.moovapps</groupId>
+				<artifactId>quick-start-database-provider</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

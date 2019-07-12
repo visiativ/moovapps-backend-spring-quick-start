@@ -20,6 +20,10 @@
 			<groupId>com.moovapps</groupId>
 			<artifactId>quick-start-rest-adapter</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.moovapps</groupId>
+			<artifactId>quick-start-database-provider</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
