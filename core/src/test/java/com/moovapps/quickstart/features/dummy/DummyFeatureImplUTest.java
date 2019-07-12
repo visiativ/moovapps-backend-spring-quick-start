@@ -5,13 +5,13 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class DummyFeatureUTest {
+class DummyFeatureImplUTest {
 
-  private DummyFeature dummyFeature;
+  private DummyFeatureImpl dummyFeature;
 
   @BeforeEach
   void setUp() {
-    this.dummyFeature = new DummyFeature();
+    this.dummyFeature = new DummyFeatureImpl();
   }
 
   @Test

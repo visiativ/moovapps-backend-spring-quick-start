@@ -11,11 +11,19 @@
 	<artifactId>quick-start-core</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
-	<properties>
-		<java.version>11</java.version>
-	</properties>
-
 	<dependencies>
+		<dependency>
+			<groupId>com.moovapps</groupId>
+			<artifactId>quick-start-core-infrastructure</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.moovapps</groupId>
+			<artifactId>quick-start-core-bean</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.moovapps</groupId>
+			<artifactId>quick-start-core-api</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>
