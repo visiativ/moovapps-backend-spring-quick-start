@@ -1,6 +1,5 @@
 package com.moovapps.quickstart.rest.v1;
 
-
 public class UserDTO {
 
   private final String email;
