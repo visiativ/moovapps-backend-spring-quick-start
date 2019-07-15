@@ -1,11 +1,16 @@
 pipeline {
     agent {
-        docker { image 'maven:3.6-alpine' }
+        docker { image 'maven:3.6-jdk-11-slim' }
     }
     stages {
         stage('build and test') {
             steps {
-                sh 'mvn -Pprod clean install'
+                sh 'mvn -B -Pprod clean install'
+            }
+        }
+        stage('sonar') {
+            steps {
+                sh 'mvn -B sonar:sonar -Dsonar.host.url=http://vv0442:9090'
             }
         }
     }
