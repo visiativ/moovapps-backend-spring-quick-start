@@ -1,7 +1,5 @@
 package com.moovapps.quickstart.rest.v1;
 
-import com.moovapps.quickstart.core.bean.User;
-import java.util.function.Function;
 
 public class UserDTO {
 

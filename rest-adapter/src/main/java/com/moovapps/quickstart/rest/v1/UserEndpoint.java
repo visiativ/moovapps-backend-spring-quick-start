@@ -1,11 +1,8 @@
 package com.moovapps.quickstart.rest.v1;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.moovapps.quickstart.core.bean.User;
 import com.moovapps.quickstart.core.user.UserService;
-import com.moovapps.quickstart.features.dummy.DummyFeature;
 import java.util.Optional;
-import java.util.function.Function;
 import javax.inject.Inject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +28,7 @@ public class UserEndpoint {
     return ResponseEntity.of(userOptional.map(this::toDto));
   }
 
-  public UserDTO toDto(User user)  {
+  public UserDTO toDto(User user) {
     return new UserDTO(user.getEmail(), user.getFirstName(), user.getLastName());
   }
 }
