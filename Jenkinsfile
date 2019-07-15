@@ -13,5 +13,13 @@ pipeline {
                 sh 'mvn -B sonar:sonar -Dsonar.host.url=http://vv0442:9090'
             }
         }
+        stage('check coverage') {
+            steps {
+            }
+        }
+        stage('build docker') {
+            steps {
+            }
+        }
     }
 }

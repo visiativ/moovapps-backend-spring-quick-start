@@ -31,6 +31,7 @@ class UserServiceImplUTest {
 
   @Test
   void findUserByEmailNotFound() {
+    when(this.databaseProvider.findUserByEmail("flucas@visiativ.com")).thenReturn(Optional.empty());
     Optional<User> optionalUser = this.userService.findUserByEmail("flucas@visiativ.com");
     assertFalse(optionalUser.isPresent());
   }

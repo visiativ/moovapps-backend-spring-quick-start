@@ -1,5 +1,7 @@
 package com.moovapps.quickstart.core.bean;
 
+import org.apache.commons.lang3.Validate;
+
 public class User {
 
   private final String email;
@@ -7,9 +9,9 @@ public class User {
   private final String lastName;
 
   public User(String email, String firstName, String lastName) {
-    this.email = email;
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.email = Validate.notBlank(email);
+    this.firstName = Validate.notBlank(firstName);
+    this.lastName = Validate.notBlank(lastName);
   }
 
   public String getFirstName() {

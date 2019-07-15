@@ -20,6 +20,7 @@
 		<module>boot</module>
 		<!-- many api implementations -->
 		<module>rest-adapter</module>
+
 		<!-- only one business logic -->
 		<module>core-api</module>
 		<module>core</module>
@@ -44,7 +45,6 @@
 
 	<dependencyManagement>
 		<dependencies>
-
 			<!-- Current application -->
 			<dependency>
 				<groupId>com.moovapps</groupId>
