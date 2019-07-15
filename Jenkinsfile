@@ -15,10 +15,12 @@ pipeline {
         }
         stage('check coverage') {
             steps {
+             // TODO : fail if coverage is too low
             }
         }
         stage('build docker') {
             steps {
+            // TODO : build docker image
             }
         }
     }
