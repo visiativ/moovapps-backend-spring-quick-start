@@ -13,8 +13,6 @@
   <artifactId>quick-start</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>quick-start</name>
-  <description>A simple quick start project</description>
 
   <modules>
     <!-- spring boot specific application starter-->
