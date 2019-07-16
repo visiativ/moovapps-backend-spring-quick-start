@@ -1,15 +1,14 @@
-package com.moovapps.quickstart.rest.v1;
+package com.moovapps.rest.v1;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.moovapps.quickstart.core.bean.User;
-import com.moovapps.quickstart.core.user.UserService;
-import com.moovapps.rest.v1.UserDTO;
-import com.moovapps.rest.v1.UserEndpoint;
+import com.moovapps.domain.api.user.UserService;
+import com.moovapps.domain.bean.User;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

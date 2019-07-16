@@ -1,4 +1,4 @@
-package com.moovapps.quickstart;
+package com.moovapps.boot;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

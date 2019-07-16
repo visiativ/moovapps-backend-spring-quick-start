@@ -1,4 +1,4 @@
-package com.moovapps.providers.core.infrastructure.database;
+package com.moovapps.infrastructure.providers.database;
 
 import com.moovapps.domain.bean.User;
 import com.moovapps.domain.infrastructure.database.DatabaseProvider;

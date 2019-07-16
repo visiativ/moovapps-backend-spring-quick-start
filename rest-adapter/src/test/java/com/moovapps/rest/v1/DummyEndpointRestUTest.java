@@ -1,12 +1,11 @@
-package com.moovapps.quickstart.rest.v1;
+package com.moovapps.rest.v1;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import com.moovapps.quickstart.features.dummy.DummyFeature;
-import com.moovapps.rest.v1.DummyEndpoint;
+import com.moovapps.domain.api.features.dummy.DummyFeature;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

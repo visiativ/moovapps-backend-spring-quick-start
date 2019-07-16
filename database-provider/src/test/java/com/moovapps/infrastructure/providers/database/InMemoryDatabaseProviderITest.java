@@ -1,9 +1,9 @@
-package com.moovapps.quickstart.core.infrastructure.database;
+package com.moovapps.infrastructure.providers.database;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.moovapps.providers.core.infrastructure.database.InMemoryDatabaseProvider;
-import com.moovapps.quickstart.core.bean.User;
+import com.moovapps.domain.bean.User;
+import com.moovapps.domain.infrastructure.database.DatabaseProvider;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
