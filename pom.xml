@@ -21,10 +21,10 @@
     <module>rest-adapter</module>
 
     <!-- only one business logic -->
-    <module>core-api</module>
-    <module>core</module>
-    <module>core-bean</module>
-    <module>core-infrastructure</module>
+    <module>domain-api</module>
+    <module>domain</module>
+    <module>domain-bean</module>
+    <module>domain-infrastructure</module>
     <!-- many infrastructure services -->
     <module>database-provider</module>
 
