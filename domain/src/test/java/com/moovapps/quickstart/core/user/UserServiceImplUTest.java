@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+import com.moovapps.domain.api.user.UserServiceImpl;
 import com.moovapps.quickstart.core.bean.User;
 import com.moovapps.quickstart.core.infrastructure.database.DatabaseProvider;
 import java.util.Optional;

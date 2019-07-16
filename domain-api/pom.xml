@@ -15,7 +15,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.moovapps</groupId>
-			<artifactId>quick-start-core-bean</artifactId>
+			<artifactId>quick-start-domain-bean</artifactId>
 		</dependency>
 	</dependencies>
 

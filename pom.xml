@@ -38,22 +38,22 @@
       <!-- Current application -->
       <dependency>
         <groupId>com.moovapps</groupId>
-        <artifactId>quick-start-core-api</artifactId>
+        <artifactId>quick-start-domain-api</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.moovapps</groupId>
-        <artifactId>quick-start-core</artifactId>
+        <artifactId>quick-start-domain</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.moovapps</groupId>
-        <artifactId>quick-start-core-bean</artifactId>
+        <artifactId>quick-start-domain-bean</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>com.moovapps</groupId>
-        <artifactId>quick-start-core-infrastructure</artifactId>
+        <artifactId>quick-start-domain-infrastructure</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>

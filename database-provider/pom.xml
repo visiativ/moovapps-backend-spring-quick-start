@@ -18,7 +18,7 @@
   <dependencies>
     <dependency>
       <groupId>com.moovapps</groupId>
-      <artifactId>quick-start-core-infrastructure</artifactId>
+      <artifactId>quick-start-domain-infrastructure</artifactId>
     </dependency>
   </dependencies>
 

@@ -14,15 +14,15 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.moovapps</groupId>
-			<artifactId>quick-start-core-infrastructure</artifactId>
+			<artifactId>quick-start-domain-infrastructure</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.moovapps</groupId>
-			<artifactId>quick-start-core-bean</artifactId>
+			<artifactId>quick-start-domain-bean</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.moovapps</groupId>
-			<artifactId>quick-start-core-api</artifactId>
+			<artifactId>quick-start-domain-api</artifactId>
 		</dependency>
 	</dependencies>
 
