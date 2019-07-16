@@ -10,7 +10,7 @@ pipeline {
         }
         stage('sonar') {
             steps {
-                sh 'mvn -B sonar:sonar -Dsonar.host.url=http://10.2.4.254:9090'
+                sh 'mvn -B sonar:sonar -Dsonar.host.url=http://10.2.0.61:9090'
             }
         }
         stage('check coverage') {
