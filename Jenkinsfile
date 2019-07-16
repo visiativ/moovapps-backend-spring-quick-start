@@ -19,8 +19,14 @@ pipeline {
         }
         stage('build docker') {
             steps {
+              script {
+                var pom = readMavenPom
+                ARTIFACT_ID = pom.artifactId
+                ARTIFACT_VERSION = pom.version
+              }
               dir("boot") {
-                sh 'docker build --build-arg project=$ARTIFACT_ID --build-arg version=$ARTIFACT_VERSION --file=src/main/docker/Dockerfile --tag=quick-start:latest .'
+
+                sh "docker build --build-arg project=${ARTIFACT_ID} --build-arg version=${ARTIFACT_VERSION} --file=src/main/docker/Dockerfile --tag=quick-start:latest ."
               }
             }
         }
