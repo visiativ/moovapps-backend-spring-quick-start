@@ -2,9 +2,8 @@ package com.moovapps.domain.api.user;
 
 import static org.apache.commons.lang3.Validate.*;
 
-import com.moovapps.quickstart.core.bean.User;
-import com.moovapps.quickstart.core.infrastructure.database.DatabaseProvider;
-import com.moovapps.quickstart.core.user.UserService;
+import com.moovapps.domain.bean.User;
+import com.moovapps.domain.infrastructure.database.DatabaseProvider;
 import java.util.Optional;
 import javax.inject.Inject;
 import javax.inject.Named;

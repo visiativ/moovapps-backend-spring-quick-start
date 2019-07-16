@@ -1,6 +1,6 @@
 package com.moovapps.rest.v1;
 
-import com.moovapps.quickstart.features.dummy.DummyFeature;
+import com.moovapps.domain.api.features.dummy.DummyFeature;
 import javax.inject.Inject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

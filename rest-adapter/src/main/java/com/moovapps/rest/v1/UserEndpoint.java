@@ -1,5 +1,8 @@
 package com.moovapps.rest.v1;
 
+import com.moovapps.domain.api.user.UserService;
+import com.moovapps.domain.bean.User;
+import java.util.Optional;
 import javax.inject.Inject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

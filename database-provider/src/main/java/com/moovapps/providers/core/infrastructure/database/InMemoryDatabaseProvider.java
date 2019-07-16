@@ -1,7 +1,7 @@
 package com.moovapps.providers.core.infrastructure.database;
 
-import com.moovapps.quickstart.core.bean.User;
-import com.moovapps.quickstart.core.infrastructure.database.DatabaseProvider;
+import com.moovapps.domain.bean.User;
+import com.moovapps.domain.infrastructure.database.DatabaseProvider;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

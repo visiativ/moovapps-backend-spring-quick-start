@@ -1,6 +1,6 @@
 package com.moovapps.domain.api.user;
 
-import com.moovapps.quickstart.core.bean.User;
+import com.moovapps.domain.bean.User;
 import java.util.Optional;
 
 public interface UserService {
