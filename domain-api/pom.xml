@@ -8,7 +8,7 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>quick-domain-core-api</artifactId>
+	<artifactId>quick-start-domain-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>this will contains Driver Ports</description>
 
