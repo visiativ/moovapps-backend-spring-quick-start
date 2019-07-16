@@ -2,6 +2,10 @@ pipeline {
     agent {
         docker { image 'maven:3.6-jdk-11-slim' }
     }
+    environment {
+      ARTIFACT_VERSION = readMavenPom().getVersion()
+      ARTIFACT_ID    = readMavenPom().getArtifactId()()
+    }
     stages {
         stage('build and test') {
             steps {
@@ -13,14 +17,11 @@ pipeline {
                 sh 'mvn -B sonar:sonar -Dsonar.host.url=http://10.2.0.61:9090'
             }
         }
-        stage('check coverage') {
-            steps {
-             sh 'mvn -B '
-            }
-        }
         stage('build docker') {
             steps {
-            // TODO : build docker image
+              dir("boot") {
+                sh 'docker build --build-arg project=$ARTIFACT_ID --build-arg version=$ARTIFACT_VERSION --file=src/main/docker/Dockerfile --tag=quick-start:latest .'
+              }
             }
         }
     }
