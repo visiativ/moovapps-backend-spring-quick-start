@@ -1,4 +1,4 @@
-FROM openjdk:11
+FROM dregistry.moovapps.com/moovapps/java:11-openjdk
 
 ARG project
 ARG version
