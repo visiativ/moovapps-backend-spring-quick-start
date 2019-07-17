@@ -1,6 +1,9 @@
 pipeline {
     agent {
-        docker { image 'dregistry.moovapps.com/moovapps/java:11-openjdk-maven' }
+        docker {
+          image 'dregistry.moovapps.com/moovapps/java:11-openjdk-maven'
+          label 'vm-int-jenkins-slave'
+        }
     }
     stages {
         stage('build and test') {
