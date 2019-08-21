@@ -8,7 +8,7 @@ cache:
 
 install:
   - cp -f .travis/settings.xml $HOME/.m2 # configure maven security
-  - mvn dependency:go-offline -B -V # download maven dependencies
+  - mvn de.qaware.maven:go-offline-maven-plugin:1.2.0:resolve-dependencies -B -V # download maven dependencies
 
 script:
   - mvn -P prod clean verify -B -Dmaven.javadoc.skip=true -Dmaven.source.skip=true # build and test
