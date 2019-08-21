@@ -69,4 +69,15 @@
     </dependencies>
   </dependencyManagement>
 
+  <distributionManagement>
+    <repository>
+      <id>java-process-private-release</id>
+      <url>https://repository.devops.moovapps.com/repository/java-process-private-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>java-process-private-snapshot</id>
+      <url>https://repository.devops.moovapps.com/repository/java-process-private-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
 </project>
