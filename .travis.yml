@@ -7,11 +7,11 @@ cache:
     - "$HOME/.m2"
 
 install:
-  - cp -f .travis/settings.xml $HOME/.m2
-  - mvn dependency:go-offline -B -V -q
+  - cp -f .travis/settings.xml $HOME/.m2 # configure maven security
+  - mvn dependency:go-offline -B -V # download maven dependencies
 
 script:
-  - mvn -P prod clean verify -B -Dmaven.javadoc.skip=true -Dmaven.source.skip=true
+  - mvn -P prod clean verify -B -Dmaven.javadoc.skip=true -Dmaven.source.skip=true # build and test
 
 deploy:
   - provider: script
