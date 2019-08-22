@@ -18,12 +18,12 @@ cache:
 
 install:
   - cp -f .travis/settings.xml $HOME/.m2 # configure maven security
-  - .travis/setup-env.sh # setup maven environment variable
+  - bash .travis/setup-env.sh # setup maven environment variable
 
 script:
   # build and test with prod profile and then execute the SonarCloud analysis
   - mvn -P prod clean verify sonar:sonar -Dsonar.projectKey=visiativ_moovapps-backend-spring-quick-start -B
-  - .travis/build-docker.sh
+  - bash .travis/build-docker.sh
 
 deploy:
   - provider: script
