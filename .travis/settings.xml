@@ -44,8 +44,8 @@ under the License.
  |
  |-->
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
   <!-- localRepository
    | The path to the local repository maven will use to store artifacts.
    |
@@ -140,7 +140,6 @@ under the License.
       <username>${env.NEXUS_USER}</username>
       <password>${env.NEXUS_PASSWORD}</password>
     </server>
-
   </servers>
 
   <!-- mirrors
@@ -255,31 +254,33 @@ under the License.
       </properties>
     </profile>
     -->
-  <profile>
-    <id>repository.devops.moovapps.com</id>
-    <repositories>
-      <repository>
-        <id>java-moovapps-public</id>
-	      <url>https://repository.devops.moovapps.com/repository/java-moovapps-public/</url>
-      </repository>
-      <repository>
-        <id>java-process-private</id>
-	      <url>https://repository.devops.moovapps.com/repository/java-process-private/</url>
-      </repository>
-    </repositories>		
-    <pluginRepositories>
-      <pluginRepository>
-        <id>java-process-private-plugins</id>
-	      <url>https://repository.devops.moovapps.com/repository/java-process-private/</url>
-	      <releases>
-          <enabled>true</enabled>
-	      </releases>
-	      <snapshots>
-	        <enabled>true</enabled>
-	      </snapshots>
-      </pluginRepository>
-    </pluginRepositories>
-  </profile>
+
+    <!-- profile used to add readonly access to moovapps repository -->
+    <profile>
+      <id>repository.devops.moovapps.com</id>
+      <repositories>
+        <repository>
+          <id>java-moovapps-public</id>
+          <url>https://repository.devops.moovapps.com/repository/java-moovapps-public/</url>
+        </repository>
+        <repository>
+          <id>java-moovapps-private</id>
+          <url>https://repository.devops.moovapps.com/repository/java-moovapps-private</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>java-moovapps-private-plugins</id>
+          <url>https://repository.devops.moovapps.com/repository/java-moovapps-private</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
   </profiles>
 
   <!-- activeProfiles
