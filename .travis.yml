@@ -28,10 +28,12 @@ script:
 deploy:
   - provider: script
     script: bash .travis/deploy.sh # travis only support one line script
+    skip_cleanup: true
     on:
       branch: develop
   - provider: script
     script: bash .travis/deploy.sh
+    skip_cleanup: true
     on:
       tags: true
       branch: master
