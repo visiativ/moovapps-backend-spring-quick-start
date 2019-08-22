@@ -10,15 +10,15 @@ install:
   - cp -f .travis/settings.xml $HOME/.m2 # configure maven security
 
 script:
-  - mvn -P prod clean verify -B -Dmaven.javadoc.skip=true -Dmaven.source.skip=true # build and test
+  - mvn -P prod clean verify -B # build and test with prod profile
 
 deploy:
   - provider: script
-    script: mvn -P prod deploy -B -DskipTests=true -Dmaven.javadoc.skip=false -Dmaven.source.skip=false
+    script: mvn -P nexus deploy -B -DskipTests=true
     on:
       branch: develop
   - provider: script
-    script: mvn -P prod deploy -B -DskipTests=true -Dmaven.javadoc.skip=false -Dmaven.source.skip=false
+    script: mvn -P nexus deploy -B -DskipTests=true
     on:
       tags: true
       branch: master
