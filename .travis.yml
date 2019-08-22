@@ -2,15 +2,23 @@ language: java
 dist: bionic
 jdk: openjdk11
 
+addons:
+  sonarcloud:
+    organization: "visiativ"
+    token:
+      # encrypted value of your token
+      secure: "GQ3XT7F61RpA2BM6ShuVb9JZ22/W2yc1rQ1vyuKZQmBHoeUyFeVzN1LNd7NJDgiIDY9NlEuMQmkhB0lPi4bIHVxNxObA2uUebFISVWQy6QuIjaQ7O8iQqwmUxalZ79bg6DRqLh3Wtdzpq3tdhglOzza4blOuaDQ3+zmKupxeYLeAI9bjQNwRsZENjbZnhXhdxEvu+v71Klx4YerVlZpRI55/rPLASnnthLzb5UHzXv6oY4QoqFgtTTyFNINY4Tx/J6UvjhGT3Nc7GBVqRqDc2vYtxdfODi9Q8rMmGqKQ574ffzkdERu7gXYs1exatQiCtWNn1pDNeY0CI8XoFNbQXuYqeR8jEEYC1Wuf/ulb6/UtdVvv4duaDESuBQGiJ1XxA/XaMXt0yPWXN9HbH2aiK7fOxF7iXmqo7WW79WXvD3yO2/P4Z5/W31pd8JY06T82/F5xHS0Qq1IQTNvU60xd6XyisFFaD65L2B7gtOL3pN6hoUbOgVkccyopZoeNA9osS6POaOtfsSq2J5hZoUVYSD+YVphwoMttKk48XMy3fKPx1YCGU/WJGtPqRufYUuljEzwgtVbdvOdUOHJLaCZ65NTBIbypPHxaOt3vZY7jrf7AzZPC2jhZ+3DH3qdE6SKVAG9+ZNmvUWc5HdO96FYjsd7EVZqXiKT5GYqJ0B1sAP4="
+
 cache:
   directories:
-    - "$HOME/.m2"
+    - "$HOME/.m2/repository"
 
 install:
   - cp -f .travis/settings.xml $HOME/.m2 # configure maven security
 
 script:
-  - mvn -P prod clean verify -B # build and test with prod profile
+  # build and test with prod profile and then execute the SonarCloud analysis
+  - mvn -P prod clean verify sonar:sonar -Dsonar.projectKey=visiativ_moovapps-backend-spring-quick-start -B
 
 deploy:
   - provider: script
