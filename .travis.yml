@@ -27,15 +27,11 @@ script:
 
 deploy:
   - provider: script
-    script:
-      - mvn -P nexus deploy -B -DskipTests=true
-      - .travis/deploy-docker.sh
+    script: bash .travis/deploy.sh
     on:
       branch: develop
   - provider: script
-    script:
-      - mvn -P nexus deploy -B -DskipTests=true
-      - .travis/deploy-docker.sh
+    script: bash .travis/deploy.sh
     on:
       tags: true
       branch: master
