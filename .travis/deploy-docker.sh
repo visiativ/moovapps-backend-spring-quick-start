@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /ci-tools.sh
+source /$HOME/ci-tools.sh
 
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin dregistry.devops.moovapps.com
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source /ci-tools.sh
+source /$HOME/ci-tools.sh
 
 # copy the final jar beside the Dockerfile with simple name
 cp target/${PROJECT_ARTIFACT_ID}-${PROJECT_VERSION}.jar src/docker/app.jar
