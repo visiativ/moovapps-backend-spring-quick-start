@@ -1,5 +1,9 @@
 FROM openjdk:11-slim
 
-ADD app.jar app.jar
+ARG JAR_FILE
 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar", ""]
+COPY ${JAR_FILE} app.jar
+
+VOLUME /tmp
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
